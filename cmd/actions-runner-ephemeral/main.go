@@ -60,7 +60,7 @@ func main() {
 	for {
 		ctx := context.Background()
 
-		containers, err := cli.ContainerList(ctx, container.ListOptions{})
+		containers, err := cli.ContainerList(ctx, types.ContainerListOptions{})
 		if err != nil {
 			panic(err)
 		}
@@ -101,7 +101,7 @@ func main() {
 					panic(err)
 				}
 
-				err = cli.ContainerStart(ctx, res.ID, container.StartOptions{})
+				err = cli.ContainerStart(ctx, res.ID, types.ContainerStartOptions{})
 
 				if err != nil {
 					panic(err)
