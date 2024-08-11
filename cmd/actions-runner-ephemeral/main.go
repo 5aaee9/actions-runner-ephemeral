@@ -57,6 +57,15 @@ func main() {
 		}
 	}
 
+	fmt.Printf("Pulling image %s\n", RequestImage)
+	out, err := cli.ImagePull(context.Background(), RequestImage, types.ImagePullOptions{})
+	if err != nil {
+		panic(err)
+	}
+
+	out.Close()
+	fmt.Printf("Pull image %s done\n", RequestImage)
+
 	for {
 		ctx := context.Background()
 
